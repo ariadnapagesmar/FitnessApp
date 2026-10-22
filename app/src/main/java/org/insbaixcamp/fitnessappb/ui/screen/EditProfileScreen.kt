@@ -52,15 +52,23 @@ fun EditProfileScreen(
     pesObjectiu: Double,
     alçada: Int,
     objectiu: String,
-    onSave: () -> Unit
+    onSave: (
+        nom: String,
+        email: String,
+        dataNaixement: Long,
+        genere: String,
+        pes: Double,
+        pesObjectiu: Double,
+        alçada: Int
+    ) -> Unit
 ) {
-    var nomNou:String by remember { mutableStateOf(nom) }
-    var emailNou:String by remember { mutableStateOf(email) }
-    var dataNaixementNou:Long by remember { mutableStateOf(dataNaixement) }
-    var genereNou:String by remember { mutableStateOf(genere) }
-    var pesNou:Double by remember { mutableStateOf(pes) }
-    var pesObjectiuNou:Double by remember { mutableStateOf(pesObjectiu) }
-    var alçadaNou:Int by remember { mutableStateOf(alçada) }
+    var nomNou: String by remember { mutableStateOf(nom) }
+    var emailNou: String by remember { mutableStateOf(email) }
+    var dataNaixementNou: Long by remember { mutableStateOf(dataNaixement) }
+    var genereNou: String by remember { mutableStateOf(genere) }
+    var pesNou: Double by remember { mutableStateOf(pes) }
+    var pesObjectiuNou: Double by remember { mutableStateOf(pesObjectiu) }
+    var alçadaNou: Int by remember { mutableStateOf(alçada) }
 
     var showDatePicker by remember { mutableStateOf(false) }
     var expandedGenere by remember { mutableStateOf(false) }
@@ -68,8 +76,10 @@ fun EditProfileScreen(
 
 
 
-    Column(Modifier.fillMaxWidth()){
-        Row(Modifier.fillMaxWidth().padding(16.dp)){
+    Column(Modifier.fillMaxWidth()) {
+        Row(Modifier
+            .fillMaxWidth()
+            .padding(16.dp)) {
             Image(
                 painter = painterResource(R.drawable.ic_launcher_foreground),
                 contentDescription = null,
@@ -78,23 +88,27 @@ fun EditProfileScreen(
                     .clip(CircleShape)
                     .background(Color.Black)
             )
-            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.End){
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.End) {
                 Button(onClick = {}) { Text("Canviar foto") }
-                Button(onClick = {}){ Text("Eliminar foto")}
+                Button(onClick = {}) { Text("Eliminar foto") }
             }
         }
         Text("Dades personals", modifier = Modifier.padding(8.dp))
         OutlinedTextField(
             value = nomNou,
             onValueChange = { nomNou = it },
-            label = { Text("Nom complet")},
-            modifier = Modifier.padding(8.dp).fillMaxWidth(),
+            label = { Text("Nom complet") },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
         )
         OutlinedTextField(
             value = emailNou,
             onValueChange = { emailNou = it },
-            label = { Text("Email")},
-            modifier = Modifier.padding(8.dp).fillMaxWidth(),
+            label = { Text("Email") },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth(),
         )
 
         //Calendari
@@ -102,7 +116,9 @@ fun EditProfileScreen(
             label = "Data de naixement",
             selectedDateMillis = dataNaixementNou,
             onDateSelected = { dataNaixementNou = it },
-            modifier = Modifier.padding(8.dp).fillMaxWidth()
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
         )
 
         //genere
@@ -111,31 +127,51 @@ fun EditProfileScreen(
             opcions = opcionsGenere,
             valorSeleccionat = genereNou,
             onValorSeleccionat = { genereNou = it },
-            modifier = Modifier.padding(8.dp).fillMaxWidth()
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
         )
 
 
         Text("Dades físiques")
-        Row(Modifier.padding(8.dp)){
+        Row(Modifier.padding(8.dp)) {
             OutlinedTextField(
                 value = alçadaNou.toString(),
                 onValueChange = { alçadaNou = it.toInt() },
-                label = { Text("Alçada")},
+                label = { Text("Alçada") },
             )
             OutlinedTextField(
                 value = pesNou.toString(),
                 onValueChange = { pesNou = it.toDouble() },
-                label = { Text("Pes")},
+                label = { Text("Pes") },
             )
             OutlinedTextField(
-                value = pesNou.toString(),
+                value = pesObjectiuNou.toString(),
                 onValueChange = { pesObjectiuNou = it.toDouble() },
-                label = { Text("Pes objectiu")},
+                label = { Text("Pes objectiu") },
             )
         }
-
-
+        Button(
+            onClick = {
+                onSave(
+                    nomNou,
+                    emailNou,
+                    dataNaixementNou,
+                    genereNou,
+                    pesNou,
+                    pesObjectiuNou,
+                    alçadaNou
+                )
+            },
+            modifier = Modifier
+                .padding(8.dp)
+                .fillMaxWidth()
+        )
+        {
+            Text("Guardar canvis")
+        }
     }
+
 }
 
 

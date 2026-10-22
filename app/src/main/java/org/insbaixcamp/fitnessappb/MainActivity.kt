@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,7 +26,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             FitnessAppBTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FitnessApp()
+                    Box(modifier = Modifier.padding(innerPadding)) {
+                        FitnessApp()
+                    }
                 }
             }
         }
@@ -46,7 +50,19 @@ fun FitnessApp() {
     var objectiu:String by remember { mutableStateOf("Guanyar massa muscular") }
 
     if(editant){
-        EditProfileScreen(nom, email, dataNaixement, genere, pes,pesObjectiu, alçada, objectiu, onSave = {editant=false})
+        EditProfileScreen(
+            nom, email, dataNaixement, genere, pes, pesObjectiu, alçada, objectiu,
+            onSave = { nomN, emailN, dataNaixementN, genereN, pesN, pesObjectiuN, alçadaN ->
+                nom = nomN
+                email = emailN
+                dataNaixement = dataNaixementN
+                genere = genereN
+                pes = pesN
+                pesObjectiu = pesObjectiuN
+                alçada = alçadaN
+                editant = false
+            }
+        )
     }else{
         ProfileScreen(nom, email, dataNaixement, genere, pes, alçada, objectiu, onEditar = {editant=true})
     }
