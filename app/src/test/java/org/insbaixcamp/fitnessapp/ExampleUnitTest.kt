@@ -1,4 +1,4 @@
-package org.insbaixcamp.fitnessappb
+package org.insbaixcamp.fitnessapp
 
 import org.junit.Test
 

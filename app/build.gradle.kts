@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "org.insbaixcamp.fitnessappb"
+    namespace = "org.insbaixcamp.fitnessapp"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "org.insbaixcamp.fitnessappb"
+        applicationId = "org.insbaixcamp.fitnessapp"
         minSdk = 24
         targetSdk = 37
         versionCode = 1

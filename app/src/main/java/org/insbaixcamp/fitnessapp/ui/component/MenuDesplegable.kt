@@ -1,4 +1,4 @@
-package org.insbaixcamp.fitnessappb.ui.component
+package org.insbaixcamp.fitnessapp.ui.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.DropdownMenuItem

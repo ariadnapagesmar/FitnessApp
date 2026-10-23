@@ -1,4 +1,4 @@
-package org.insbaixcamp.fitnessappb.ui.component
+package org.insbaixcamp.fitnessapp.ui.component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -36,7 +36,7 @@ fun CalendariPicker (
     // Convertim la data a un text
     val formattedDate = selectedDateMillis?.let { formatDate(it) } ?: ""
 
-    // Camp de text
+
     OutlinedTextField(
         value = formattedDate,
         onValueChange = {},
@@ -56,7 +56,7 @@ fun CalendariPicker (
         modifier = modifier
     )
 
-    // Calendari modal
+
     if (showDatePicker) {
 
         val datePickerState = rememberDatePickerState(
@@ -97,7 +97,7 @@ fun CalendariPicker (
     }
 }
 
-// Funció auxiliar per mostrar la data
+
 private fun formatDate(millis: Long): String {
 
     val formatter = SimpleDateFormat(

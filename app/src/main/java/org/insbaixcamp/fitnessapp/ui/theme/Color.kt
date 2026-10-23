@@ -1,4 +1,4 @@
-package org.insbaixcamp.fitnessappb.ui.theme
+package org.insbaixcamp.fitnessapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

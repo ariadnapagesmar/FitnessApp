@@ -1,4 +1,4 @@
-package org.insbaixcamp.fitnessappb.ui.screen
+package org.insbaixcamp.fitnessapp.ui.screen
 
 import android.R.attr.onClick
 import androidx.compose.foundation.Image
@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.insbaixcamp.fitnessappb.R
+import org.insbaixcamp.fitnessapp.R
 import java.util.Calendar
 
 @Composable
@@ -93,12 +93,12 @@ fun ProfileScreen(
         Spacer(Modifier.padding(16.dp))
         Text("Objectiu", fontSize = 20.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(horizontal = 16.dp))
         Card(Modifier.padding(horizontal = 16.dp)){
-            Text(objectiu, 
-                fontSize = 16.sp, 
-                color = Color.Gray, 
+            Text(objectiu,
+                fontSize = 16.sp,
+                color = Color.Gray,
                 modifier = Modifier.padding(16.dp))
         }
-        
+
     }
     Column(Modifier.fillMaxWidth(),horizontalAlignment = Alignment.End){
         Image(

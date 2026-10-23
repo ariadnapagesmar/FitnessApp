@@ -1,4 +1,4 @@
-package org.insbaixcamp.fitnessappb
+package org.insbaixcamp.fitnessapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,9 +15,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import org.insbaixcamp.fitnessappb.ui.screen.EditProfileScreen
-import org.insbaixcamp.fitnessappb.ui.screen.ProfileScreen
-import org.insbaixcamp.fitnessappb.ui.theme.FitnessAppBTheme
+import org.insbaixcamp.fitnessapp.ui.screen.EditProfileScreen
+import org.insbaixcamp.fitnessapp.ui.screen.ProfileScreen
+import org.insbaixcamp.fitnessapp.ui.theme.FitnessAppBTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
